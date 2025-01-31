@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
+import { RouterLink, RouterModule } from '@angular/router';
 import{MatButtonModule} from '@angular/material/button'
 @Component({
   selector: 'app-admin-template',
-  imports: [MatToolbarModule,MatButtonModule],
+  imports: [MatToolbarModule,MatButtonModule,RouterModule,RouterLink],
   templateUrl: './admin-template.component.html',
   styleUrl: './admin-template.component.css'
 })

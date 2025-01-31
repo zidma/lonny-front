@@ -1,11 +1,11 @@
 <mat-toolbar>
     <button mat-button>Parametres</button>
-    <button mat-button>Ecoles</button>
-    <button mat-button>classes</button>
+    <button mat-button [routerLink]="['/admin/schools']" routerLinkActive="active">Ecoles</button>
+    <button mat-button routerLink="/admin/classes">Classes</button>
     <span style="flex: auto;"></span>
-    <button mat-button>Users</button>
-    <button mat-button>Cours</button>
-    <button mat-button>Questions</button>
-    <button mat-button>Answers</button>
+    <button mat-button routerLink="/admin/users">Users</button>
+    <button mat-button routerLink="/admin/cours">Cours</button>
+    <button mat-button routerLink="/admin/questions">Questions</button>
+    <button mat-button routerLink="/admin/answers">Answers</button>
     <button mat-raised  style="background-color: accent;">Logout</button>
 </mat-toolbar>
