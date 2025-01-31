@@ -15,7 +15,7 @@ export class LessonService {
         )
       }
       this.lessons.set(cours)
-    },{allowSignalWrites:true})
+    })
    }
    getLessons():Lesson[]{
     return this.lessons();

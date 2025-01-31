@@ -11,7 +11,7 @@ import { LessonService } from '../../services/lesson.service';
 export class CoursComponent implements OnInit {
   lessons=computed<Lesson[]>(()=>this.ls.getLessons())
   constructor(private ls:LessonService){
-
+    
   }
   ngOnInit(): void {
     
