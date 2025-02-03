@@ -22,7 +22,7 @@
           <mat-icon  (click)="enableField('chapitre')" style="float: right;">mode_edit</mat-icon>
     </div>
       <div class="div-edit">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" formControlName="ecole">
             <mat-label>Ecole</mat-label>
             <mat-select>
                 @for (ecole of ecoles(); track ecole) {

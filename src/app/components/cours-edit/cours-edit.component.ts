@@ -36,7 +36,16 @@ ngOnInit(): void {
 }
 saveEdit(){
 if(this.lessonForm.valid){
-  this.ref.close(this.lessonForm.value)
+  console.log(this.lessonForm.get('ecole')?.value)
+  let updated={
+    id:this.fieldsValues.id,
+    title:this.lessonForm.get('title')?.value,
+    chapter:this.lessonForm.get('chapitre')?.value,
+    discipline:this.lessonForm.get('discipline')?.value,
+    ecole:this.lessonForm.get('ecole')?.value.id,
+    content:this.lessonForm.get('contenu')?.value
+  }
+  this.ref.close(updated)
 }
 }
 enableField(field:string){
@@ -45,4 +54,5 @@ enableField(field:string){
   this.lessonForm.get(field)?.reset()
   console.log(this.lessonForm.get(field)?.value)
 }
+
 }

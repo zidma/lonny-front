@@ -54,6 +54,7 @@ saveForm(){
 }
     
 openEdit(element:any){
+  console.log(element)
  const _opened=   this.dialog.open(CoursEditComponent,{
       width:'600px',
       height:'500px',

@@ -3,5 +3,6 @@ export interface Lesson{
     title:string,
     chapter:string,
     discipline:string,
-    content:string
+    content:string,
+    ecole:string
 }

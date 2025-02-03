@@ -1,0 +1,37 @@
+<form [formGroup]="schoolForm" (ngSubmit)="saveEdit()">
+    <div mat-dialog-content >
+        <div class="div-edit">
+            <mat-form-field appearance="outline">
+                <mat-label>Nom</mat-label>
+                <input matInput type="text" formControlName="nom" >
+              </mat-form-field>
+              <mat-icon  (click)="enableField('nom')" style="float: right;">mode_edit</mat-icon>
+        </div>
+        <div class="div-edit">
+            <mat-form-field appearance="outline">
+                <mat-label>Addresse</mat-label>
+                <input matInput formControlName="addresse" type="text">
+              </mat-form-field>  
+              <mat-icon  (click)="enableField('addresse')" style="float: right;">mode_edit</mat-icon>
+        </div>
+        <div class="div-edit">
+            <mat-form-field appearance="outline">
+                <mat-label>Telephone</mat-label>
+                <input matInput type="tel" formControlName="telephone">
+              </mat-form-field>
+              <mat-icon  (click)="enableField('telephone')" style="float: right;">mode_edit</mat-icon>
+        </div>
+          <div class="div-edit">
+            <mat-form-field appearance="outline" >
+                <mat-label>Email</mat-label>
+           <input matInput type="email" formControlName="email">
+              </mat-form-field>
+              <mat-icon  (click)="enableField('email')" style="float: right;">mode_edit</mat-icon>
+            </div>
+    
+    </div>
+    <div mat-dialog-actions [align]="'end'" >
+        <button mat-raised-button (click)="saveEdit()">Enregistrer</button>
+        <button mat-raised-button [mat-dialog-close]="false" >Annuler</button>
+    </div>
+    </form>
