@@ -1,0 +1,14 @@
+.seach-div{
+    width: 100%;
+    margin-top: 10px;
+    align-items: end;
+    padding-left: 10px;
+}
+mat-form-field
+{
+    font-style: italic;
+    height: 100%;
+    color: violet;
+    align-self: baseline;
+}
+
