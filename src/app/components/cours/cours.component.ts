@@ -9,6 +9,8 @@ import { CoursDashboardComponent } from "../cours-dashboard/cours-dashboard.comp
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialog } from '@angular/material/dialog';
+import { CoursEditComponent } from '../cours-edit/cours-edit.component';
 @Component({
   selector: 'app-cours',
   imports: [MatTableModule, MatPaginatorModule,MatCardModule,MatInputModule, CoursDashboardComponent,MatIconModule,MatButtonModule,ReactiveFormsModule],
@@ -19,11 +21,11 @@ export class CoursComponent implements OnInit,AfterViewInit {
   formOpened:boolean=false;
   lessonForm!:FormGroup
   data=computed<Lesson[]>(()=>this.ls.getLessons())
-  displayedColumns=['id','discipline','chapitre','title','action']
+  displayedColumns=['id','discipline','chapter','title','action']
   dataSource!:any;
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  constructor(private ls:LessonService,private fb:FormBuilder){
+  constructor(private ls:LessonService,private fb:FormBuilder,private dialog:MatDialog){
   }
   ngOnInit(): void {
     this.lessonForm=this.fb.group(
@@ -49,5 +51,23 @@ openForm(){
 }
 saveForm(){
   console.log(this.lessonForm.value)
+}
+    
+openEdit(element:any){
+ const _opened=   this.dialog.open(CoursEditComponent,{
+      width:'600px',
+      height:'500px',
+      enterAnimationDuration:'800ms',
+      exitAnimationDuration:'800ms',
+      disableClose:true,
+      data:{
+        lesson:element
+      }
+    })
+    _opened.afterClosed().subscribe(data=>{
+      if(data!==false){
+        console.log(data)
+      }
+    })
 }
 }

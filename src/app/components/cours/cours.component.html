@@ -49,7 +49,7 @@
       </ng-container>
   
       <!-- Weight Column -->
-      <ng-container matColumnDef="chapitre">
+      <ng-container matColumnDef="chapter">
         <th mat-header-cell *matHeaderCellDef> Chapitre </th>
         <td mat-cell *matCellDef="let element"> {{element.chapter}} </td>
       </ng-container>
@@ -65,7 +65,7 @@
 
         </th>
         <td mat-cell *matCellDef="let element"> 
-          <mat-icon style="color: blueviolet;margin-right: 40px;">mode_edit</mat-icon>
+          <mat-icon style="color: blueviolet;margin-right: 40px;" (click)="openEdit(element)">mode_edit</mat-icon>
           <mat-icon style="color: red; " (click)="delete(element.Id)">delete</mat-icon>
         </td>
       </ng-container>

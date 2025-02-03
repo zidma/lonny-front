@@ -1,0 +1,52 @@
+<form [formGroup]="lessonForm" (ngSubmit)="saveEdit()">
+<div mat-dialog-content >
+    <div class="div-edit">
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title">
+          </mat-form-field>
+          <mat-icon  (click)="enableField('title')" style="float: right;">mode_edit</mat-icon>
+    </div>
+    <div class="div-edit">
+        <mat-form-field appearance="outline">
+            <mat-label>Discipline</mat-label>
+            <input matInput formControlName="discipline">
+          </mat-form-field>  
+          <mat-icon  (click)="enableField('discipline')" style="float: right;">mode_edit</mat-icon>
+    </div>
+    <div class="div-edit">
+        <mat-form-field appearance="outline">
+            <mat-label>Chapitre</mat-label>
+            <input matInput formControlName="chapitre">
+          </mat-form-field>
+          <mat-icon  (click)="enableField('chapitre')" style="float: right;">mode_edit</mat-icon>
+    </div>
+      <div class="div-edit">
+        <mat-form-field appearance="outline">
+            <mat-label>Ecole</mat-label>
+            <mat-select>
+                @for (ecole of ecoles(); track ecole) {
+                        <mat-option [value]="ecole">
+                                {{ecole.nom}}
+                        </mat-option>
+                }
+            </mat-select>
+          </mat-form-field>
+          <mat-icon  (click)="enableField('ecole')" style="float: right;">mode_edit</mat-icon>
+      </div>
+      <div class="div-edit">
+        <mat-form-field appearance="outline">
+            <mat-label>Contenu</mat-label>
+            <textarea matInput formControlName="contenu" minlength="2">
+            </textarea>
+          </mat-form-field>
+          <mat-icon  (click)="enableField('contenu')" style="float: right;">mode_edit</mat-icon>
+      </div>
+        
+
+</div>
+<div mat-dialog-actions [align]="'end'" >
+    <button mat-raised-button>Enregistrer</button>
+    <button mat-raised-button [mat-dialog-close]="false" >Annuler</button>
+</div>
+</form>
