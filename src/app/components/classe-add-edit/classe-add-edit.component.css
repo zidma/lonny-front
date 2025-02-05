@@ -1,0 +1,10 @@
+.div-edit
+{
+    display: block;
+    width: 100%;
+}
+mat-form-edit{
+    float: left;
+    width: 90%;
+    display: block;
+}

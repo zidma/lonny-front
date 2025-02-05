@@ -1,0 +1,25 @@
+<form [formGroup]="classeForm" (ngSubmit)="saveClasse()">
+<div mat-dialog-content>
+    <div class="div-edit">
+    <mat-form-field>
+        <mat-label>Nom</mat-label>
+        <input matInput type="text" formControlName="nom">
+    </mat-form-field>
+    @if(isEditing){
+    <mat-icon  (click)="enableField('nom')" style="float: right;">mode_edit</mat-icon>}
+     </div>
+     <div class="div-edit">
+    <mat-form-field>
+        <mat-label>Option</mat-label>
+        <input matInput type="text" formControlName="option">
+      </mat-form-field>
+      @if(isEditing){
+        <mat-icon  (click)="enableField('option')" style="float: right;">mode_edit</mat-icon>
+      }
+     </div>
+</div>
+<div mat-dialog-actions [align]="'end'">
+<button mat-stroked-button >Enregistrer</button>
+<button mat-stroked-button [mat-dialog-close]="false"> Annuler</button>
+</div>
+</form>

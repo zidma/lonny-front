@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormGroupName, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormGroupName, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { AuthService } from '../../services/auth.service';
@@ -13,11 +13,17 @@ import { AuthService } from '../../services/auth.service';
 export class ConnectComponent implements OnInit {
 connectForm!: FormGroup;
 Connection() {
+  if(this.connectForm.valid){
+  }
 }
 constructor(private fb:FormBuilder,private authService:AuthService){
-  
+
 }
 ngOnInit(): void {
-  
+  this.connectForm=this.fb.group(
+    {
+      password:['',[Validators.required,Validators.minLength(8)]]
+    }
+  )
 }
 }

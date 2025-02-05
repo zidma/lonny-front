@@ -20,7 +20,6 @@ export class CoursEditComponent implements OnInit {
   fieldsValues!:any
   ecoles=computed<School[]>(()=>this.es.getSchools())
   constructor(private fb:FormBuilder,@Inject(MAT_DIALOG_DATA) private  data:any,private es:SchoolsService,private ref:MatDialogRef<CoursEditComponent>){
-
   }
 ngOnInit(): void {
   this.fieldsValues=this.data.lesson

@@ -1,0 +1,33 @@
+<form [formGroup]="userForm" (ngSubmit)="saveUser()">
+    <div mat-dialog-content>
+        <mat-form-field appearance="outline">
+            <mat-label>User name</mat-label>
+            <input matInput type="text" formControlName="username">
+        </mat-form-field>
+       @if(isEditing){
+        <mat-icon  (click)="enableField('username')" style="float: right;">mode_edit</mat-icon>
+       }
+        <mat-form-field appearance="outline">
+            <mat-label>Role</mat-label>
+            <input matInput type="text" formControlName="role">
+        </mat-form-field>
+        @if(isEditing){
+            <mat-icon  (click)="enableField('role')" style="float: right;">mode_edit</mat-icon>
+        }
+       
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="email" formControlName="password">
+        </mat-form-field>
+        @if (isEditing) {
+            <mat-icon  (click)="enableField('password')" style="float: right;">mode_edit</mat-icon>
+        }
+    </div>
+<div mat-dialog-actions>
+    @if(userForm.valid){
+        <button mat-stroked-button >Enregistrer</button>
+    }
+ 
+ <button mat-stroked-button [mat-dialog-close]="false" style="background-color: violet;color: black;">Annuler</button>
+</div>
+</form>

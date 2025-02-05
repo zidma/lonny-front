@@ -22,10 +22,10 @@ ngOnInit(): void {
   this.toUpdate=this.data.school;
    this.schoolForm=this.fb.group(
       {
-        nom:[{value:this.toUpdate.nom,disable:true},[Validators.required]],
-        addresse:[{value:this.toUpdate.addresse,disable:true},[Validators.required]],
-        email:[{value:this.toUpdate.email,disable:true},[Validators.required]],
-        telephone:[{value:this.toUpdate.telephone,disable:true},[Validators.required,Validators.minLength(9)]],
+        nom:[{value:this.toUpdate.nom,disabled:true},[Validators.required]],
+        addresse:[{value:this.toUpdate.addresse,disabled:true},[Validators.required]],
+        email:[{value:this.toUpdate.email,disabled:true},[Validators.required]],
+        telephone:[{value:this.toUpdate.telephone,disabled:true},[Validators.required,Validators.minLength(9)]],
       
       }
     )

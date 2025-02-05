@@ -1,0 +1,12 @@
+mat-card{
+    width: 100px;
+    height: auto;
+    margin-top: 10px;
+    color: violet;
+    font-style: italic;
+    font-display: calc();
+}
+p{
+    width: 90px;
+    height: fit-content;
+}
