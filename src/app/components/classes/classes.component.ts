@@ -15,7 +15,7 @@ import { ClasseAddEditComponent } from '../classe-add-edit/classe-add-edit.compo
 @Component({
   selector: 'app-classes',
   imports: [MatCardModule,MatTableModule,MatIconModule,MatButtonModule,MatSelectModule,MatOptionModule,
-    ReactiveFormsModule,MatInputModule,MatDialogModule
+    ReactiveFormsModule,MatInputModule,MatDialogModule,
   ],
   templateUrl: './classes.component.html',
   styleUrl: './classes.component.css',

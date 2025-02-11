@@ -1,8 +1,8 @@
 @if(!formOpened){
-  <app-cours-dashboard></app-cours-dashboard>
+  <!--<app-cours-dashboard></app-cours-dashboard>-->
 }
 @if(formOpened==true){
-  <div [formGroup]="lessonForm" class="div-form">
+  <mat-card [formGroup]="lessonForm" class="div-form">
     <mat-form-field appearance="outline">
       <mat-label>Title</mat-label>
       <input matInput formControlName="title">
@@ -24,17 +24,21 @@
       <textarea matInput formControlName="contenu" rows="4">
       </textarea>
     </mat-form-field>
-    <div class="form-action" style="float: right; margin-bottom: 10px;">
+    <mat-card-actions class="form-action" style="float: right; margin-bottom: 10px;">
     @if(lessonForm.valid){
       <button mat-raised-button (click)="saveForm()" >Enregistrer</button>
     }
     <button mat-raised-button (click)="openForm()" style="margin-left: 20px;">Annuler</button>
-  </div>
-  </div>
+    </mat-card-actions>
+  </mat-card>
   
 }
-<div class="mat-elevation-z3">
-    <table mat-table [dataSource]="dataSource">
+<div class="mat-elevation-z3" style="margin-top: 15px;">
+  <input matInput type="text" placeholder="seach by Title" style="height: 30px; background-color: black; color: violet; margin-left: 10px; font-style: italic; font-size: 15px;"(input)="trackChange($event)">
+  <input matInput placeholder="seach by matiere" type="text" style="height: 30px; background-color: black; color: violet; float: right; margin-right: 10px; font-style: italic; font-size: 15px;"(input)="trackChange($event)">
+  <input matInput placeholder="seach by chapitre" type="text" style="height: 30px; background-color: black; color: violet; margin-left: 30%; font-style: italic; font-size: 15px;"(input)="trackChange($event)">
+
+  <table mat-table [dataSource]="dataSource">
   
       <!-- Position Column -->
       <ng-container matColumnDef="id">
@@ -71,6 +75,6 @@
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (dblclick)="displayLesssonDetail(row.id)"></tr>
     </table>
   </div>

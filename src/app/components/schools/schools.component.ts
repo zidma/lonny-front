@@ -14,7 +14,7 @@ import { SchoolEditComponent } from '../school-edit/school-edit.component';
 
 @Component({
   selector: 'app-schools',
-  imports: [MatInputModule,MatTableModule,MatIconModule,ReactiveFormsModule,MatSelectModule,MatOptionModule,MatButtonModule,MatCardModule],
+  imports: [MatInputModule,MatTableModule,MatIconModule,ReactiveFormsModule,MatSelectModule,MatOptionModule,MatButtonModule,MatCardModule,MatCardModule],
   templateUrl: './schools.component.html',
   styleUrl: './schools.component.css' 
 })

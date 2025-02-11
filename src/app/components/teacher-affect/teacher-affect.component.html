@@ -1,0 +1,40 @@
+<form [formGroup]="affectForm" >
+<div mat-dialog-content>
+<mat-form-field>
+    <mat-label>Ecole</mat-label>
+    <mat-select formControlName="ecole">
+        @for (ecole of schools(); track ecole) {
+            <mat-option [value]="ecole">
+                {{ecole.nom}}
+            </mat-option>
+        }    
+    </mat-select>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Classes</mat-label>
+    <mat-select formControlName="classe">
+        @for (ecole of classes(); track ecole) {
+            <mat-option [value]="ecole">
+                {{ecole.nom}}
+            </mat-option>
+        }    
+    </mat-select>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Matieres</mat-label>
+    <mat-select formControlName="matiere">
+        @for (ecole of matieres; track ecole) {
+            <mat-option [value]="ecole">
+                {{ecole}}
+            </mat-option>
+        }    
+    </mat-select>
+</mat-form-field>
+<mat-dialog-actions [align]="'end'">
+@if(affectForm.valid){
+    <button mat-flat-button (click)="saveAffect()">Enregistrer</button>
+}
+<button mat-flat-button [mat-dialog-close]="false">Annuler</button>
+</mat-dialog-actions>
+</div>
+</form>

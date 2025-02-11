@@ -11,7 +11,6 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AdminTemplateComponent {
   constructor(public as:AuthService){
-
   }
   logout(){
     this.as.logOut()

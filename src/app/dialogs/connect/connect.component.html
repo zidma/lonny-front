@@ -6,12 +6,11 @@
                 <input matInput type="password" formControlName="password" >
               </mat-form-field>
         </div>
-    
     </div>
     <div mat-dialog-actions [align]="'end'" >
         @if(connectForm.valid){
-            <button  mat-raised-button (click)="Connection()" style="background-color: green;">Enregistrer</button>
+            <button  mat-raised-button (click)="Connection()" style="background-color: green;">Valider</button>
         }
-        <button mat-raised-button [mat-dialog-close]="false" style="background-color: violet;" >Annuler</button>
+        <button mat-raised-button [mat-dialog-close]="false" style="background-color: violet; color: white;" >Annuler</button>
     </div>
     </form>

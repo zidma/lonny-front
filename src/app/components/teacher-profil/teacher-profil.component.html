@@ -1,0 +1,47 @@
+<mat-toolbar>
+    <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span style="flex: auto;"></span>
+    <button mat-button [matMenuTriggerFor]="schoolMenu">
+        <mat-icon iconPositionStart>arrow_drop_down</mat-icon>
+        Schools
+    </button>
+    <mat-menu #schoolMenu>
+        @for (item of schools; track item) {
+            <button mat-menu-item>{{item}}</button>
+        }
+    </mat-menu>
+    <button mat-button style="color:violet;">Ahmed Diallo</button>
+    <img src="" alt="photo de profile" style="border-radius: 50%;width: 40px;height: 40px; background-color: blue;"/>
+    <button mat-stroked-button style="background-color: red; color: white; margin-left: 15px;">Logout</button>
+</mat-toolbar>
+<mat-drawer-container>
+    <mat-drawer mode="side" position="start" #drawer>
+        <mat-label>Disciplines</mat-label>
+        <mat-nav-list>
+            @for (item of disciplines; track item) {
+                <mat-list-item>
+                    <button mat-button (click)="drawer.toggle()">{{item}}</button>
+                </mat-list-item>
+            }
+        </mat-nav-list>
+        <mat-label>Classes</mat-label>
+        <mat-nav-list>
+            @for (item of classes; track item) {
+                <mat-list-item>
+                    <button mat-button (click)="drawer.toggle()">{{item}}</button>
+                </mat-list-item>
+            }
+        </mat-nav-list>
+
+    </mat-drawer>
+    <mat-drawer-content>
+        <div style="min-height: 600px;background-color: white;">
+            <router-outlet>
+
+            </router-outlet>
+        </div>
+       
+    </mat-drawer-content>
+</mat-drawer-container>

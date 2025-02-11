@@ -1,0 +1,42 @@
+
+ <mat-toolbar>
+    <button mat-icon-button (click)="drawer.toggle()" >
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span style="flex: auto;" ></span>
+    <button mat-button routerLink="/school/my-lessons">Cours</button>
+    <button mat-button routerLink="/school/my-teachers">Enseignants</button>
+    <button mat-button routerLink="/school/my-students">Eleves</button>
+   @if(authService.roles.includes('ECOLE')){
+    <button  mat-button (click)="logout()" style="background-color: violet;color: black;">Logout</button>
+   }
+ </mat-toolbar>
+
+<mat-drawer-container>
+    <mat-drawer mode="side" position="start" #drawer>
+             <mat-nav-list>
+            <mat-list-item>
+                <button mat-button>Nom Ecole</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button>Addresse Ecole</button>
+            </mat-list-item>
+            <mat-label style="font-style: italic;">Contacts:</mat-label>
+            <mat-list-item>
+                <button mat-button>Telephone</button>
+            </mat-list-item>
+            <mat-list-item>
+                <button mat-button>Email</button>
+            </mat-list-item>
+          
+        </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div style="min-height: 600px;background-color: white;">
+            <router-outlet>
+
+            </router-outlet>
+        </div>
+       
+    </mat-drawer-content>
+</mat-drawer-container>

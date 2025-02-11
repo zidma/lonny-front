@@ -1,0 +1,53 @@
+<form [formGroup]="teacherForm" (ngSubmit)="saveTeacher()">
+    <div mat-dialog-content>
+        <mat-form-field appearance="outline">
+            <mat-label>Nom</mat-label>
+            <input matInput type="text" formControlName="nom">
+        </mat-form-field>
+       @if(isEditing){
+        <mat-icon  (click)="enableField('nom')" style="float: right;">mode_edit</mat-icon>
+       }
+        <mat-form-field appearance="outline">
+            <mat-label>Prenom</mat-label>
+            <input matInput type="text" formControlName="prenom">
+        </mat-form-field>
+        @if(isEditing){
+            <mat-icon  (click)="enableField('prenom')" style="float: right;">mode_edit</mat-icon>
+        }
+        <mat-form-field appearance="outline">
+            <mat-label>Sexe</mat-label>
+      <mat-select formControlName="sexe">
+            @for (s of sexe; track s) {
+                <mat-option [value]="s">
+                    {{s}}
+                </mat-option>
+            }
+      </mat-select>
+        </mat-form-field>
+        @if(isEditing){
+            <mat-icon  (click)="enableField('sexe')" style="float: right;">mode_edit</mat-icon>
+        }
+       
+        <mat-form-field appearance="outline">
+            <mat-label>Telephone</mat-label>
+            <input matInput type="tel" formControlName="telephone">
+        </mat-form-field>
+        @if (isEditing) {
+            <mat-icon  (click)="enableField('telephone')" style="float: right;">mode_edit</mat-icon>
+        }
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email">
+        </mat-form-field>
+        @if (isEditing) {
+            <mat-icon  (click)="enableField('telephone')" style="float: right;">mode_edit</mat-icon>
+        }
+    </div>
+<div mat-dialog-actions>
+    @if(teacherForm.valid){
+        <button mat-stroked-button >Enregistrer</button>
+    }
+ 
+ <button mat-stroked-button [mat-dialog-close]="false" style="background-color: violet;color: black;">Annuler</button>
+</div>
+</form>

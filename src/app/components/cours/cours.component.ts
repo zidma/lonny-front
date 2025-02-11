@@ -5,19 +5,27 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { CoursDashboardComponent } from "../cours-dashboard/cours-dashboard.component";
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialog } from '@angular/material/dialog';
 import { CoursEditComponent } from '../cours-edit/cours-edit.component';
+import { Router } from '@angular/router';
+import { CommonService } from '../../services/common.service';
 @Component({
   selector: 'app-cours',
-  imports: [MatTableModule, MatPaginatorModule,MatCardModule,MatInputModule, CoursDashboardComponent,MatIconModule,MatButtonModule,ReactiveFormsModule],
+  imports: [MatTableModule, MatPaginatorModule,MatCardModule,MatInputModule,MatIconModule,MatButtonModule,ReactiveFormsModule],
   templateUrl: './cours.component.html',
   styleUrl: './cours.component.css'
 })
 export class CoursComponent implements OnInit,AfterViewInit {
+trackChange(event: any) {
+  console.log(event.target?.value)
+}
+displayLesssonDetail(id: number) {
+console.log(id)
+this.router.navigateByUrl(`/admin/cours/${id}`)
+}
   formOpened:boolean=false;
   lessonForm!:FormGroup
   data=computed<Lesson[]>(()=>this.ls.getLessons())
@@ -25,7 +33,7 @@ export class CoursComponent implements OnInit,AfterViewInit {
   dataSource!:any;
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  constructor(private ls:LessonService,private fb:FormBuilder,private dialog:MatDialog){
+  constructor(private ls:LessonService,private fb:FormBuilder,private dialog:MatDialog,private router:Router,private commonService:CommonService){
   }
   ngOnInit(): void {
     this.lessonForm=this.fb.group(
@@ -44,7 +52,7 @@ export class CoursComponent implements OnInit,AfterViewInit {
   }
 
 delete(id:number){
-  this.ls.delete(id)
+  this.commonService.displayConnectDialog({component:'cours',operation:'delete',id:id})
 }
 openForm(){
   this.formOpened=!this.formOpened

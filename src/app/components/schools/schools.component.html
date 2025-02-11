@@ -1,37 +1,43 @@
-@if(formOpened){
-  <div [formGroup]="schoolForm" class="div-form">
-    <mat-form-field appearance="fill">
-      <mat-label>Nom </mat-label>
-      <input matInput formControlName="nom">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Addresse</mat-label>
-      <input matInput formControlName="addresse">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input type="email" matInput formControlName="email">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Telephone</mat-label>
-      <input type="tel" matInput formControlName="telephone">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Logo</mat-label>
-       <button type="button" mat-icon-button matSuffix (click)="f_input.click()">
-       <mat-icon>attach_file</mat-icon>
-      </button>
-      <input matInput readonly formControlName="logoName">
-      <input type="file" hidden #f_input (change)="selectFile($event)" accept="application/img">
-    </mat-form-field>
-    <div class="form-action" style="float: right; margin-bottom: 10px;">
-    @if(schoolForm.valid){
-      <button mat-raised-button (click)="saveForm()" >Enregistrer</button>
+<mat-card>
+  <mat-card-header>
+  </mat-card-header>
+  <mat-card-content>
+    @if(formOpened){
+      <div [formGroup]="schoolForm" class="div-form">
+        <mat-form-field appearance="fill">
+          <mat-label>Nom </mat-label>
+          <input matInput formControlName="nom">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Addresse</mat-label>
+          <input matInput formControlName="addresse">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Telephone</mat-label>
+          <input type="tel" matInput formControlName="telephone">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Logo</mat-label>
+           <button type="button" mat-icon-button matSuffix (click)="f_input.click()">
+           <mat-icon>attach_file</mat-icon>
+          </button>
+          <input matInput readonly formControlName="logoName">
+          <input type="file" hidden #f_input (change)="selectFile($event)" accept="application/img">
+        </mat-form-field>
+        <div class="form-action" style="float: right; margin-bottom: 10px;">
+        @if(schoolForm.valid){
+          <button mat-raised-button (click)="saveForm()" >Enregistrer</button>
+        }
+        <button mat-raised-button (click)="openForm()" style="margin-left: 20px;">Annuler</button>
+      </div>
+      </div>
     }
-    <button mat-raised-button (click)="openForm()" style="margin-left: 20px;">Annuler</button>
-  </div>
-  </div>
-}
+  </mat-card-content>
+</mat-card>
 <table mat-table [dataSource]="dataSource">
   
     <!-- Position Column -->
